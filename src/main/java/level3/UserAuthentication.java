@@ -1,15 +1,13 @@
 package level3;
 
-import level2.Table;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Account {
-    private static final int ERROR = -1;
+public class UserAuthentication {
+    private final int ERROR = -1;
 
-
-    public static String login(){
+    public String identifyUser(){
         //idを入力してもらう(キャッシュカードの認証)
         System.out.print("ユーザーIDを入力してください：");
         Scanner id = new Scanner(System.in);
@@ -24,7 +22,7 @@ public class Account {
         return userId;
     }
 
-    public static void passwordCheck(String userId){
+    public void passwordCheck(String userId){
         //idに対してパスワードを参照する(3回間違えると操作できなくなる)
         int i = 0;
         int password;
@@ -51,7 +49,7 @@ public class Account {
         }
     }
 
-    private static int passwordInput() {
+    private int passwordInput() {
         int password;
         //パスワードを入力してもらう
         System.out.print("パスワードを入力してください：");
