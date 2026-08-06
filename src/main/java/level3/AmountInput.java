@@ -5,8 +5,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class AmountInput {
-    private final int ERROR = -1;
-    InputValidator inputValidator = new InputValidator();
+    private static final int ERROR = -1;
+    private final InputValidator inputValidator = new InputValidator();
 
     public int start(int operation, String userId){
         int inputAgain = 2;

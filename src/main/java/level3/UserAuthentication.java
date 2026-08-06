@@ -5,7 +5,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UserAuthentication {
-    private final int ERROR = -1;
+    private static final int ERROR = -1;
 
     public String identifyUser(){
         //idを入力してもらう(キャッシュカードの認証)
