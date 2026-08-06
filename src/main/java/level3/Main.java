@@ -2,18 +2,14 @@ package level3;
 
 
 public class Main {
-    private static final int ERROR = -1;
-
     public static void main(String[] args) {
-        int operation = 0;
         String userId;
-        int setValue;
         TransactionMenu transactionMenu = new TransactionMenu();
         UserAuthentication userAuthentication = new UserAuthentication();
         AmountInput amountInput = new AmountInput();
         TransactionResult transactionResult = new TransactionResult();
 
-        operation = transactionMenu.start();
+        int operation = transactionMenu.start();
 
         //入金を選択したとき
         if (operation == 1) {
