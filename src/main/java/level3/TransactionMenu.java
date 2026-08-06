@@ -1,11 +1,11 @@
 package level3;
 
-public class TracsactionMenu {
+public class TransactionMenu {
     private final int ERROR = -1;
     int setValue;
     InputValidator inputValidator;
 
-    TracsactionMenu(){
+    TransactionMenu(){
         this.inputValidator = new InputValidator();
     }
 

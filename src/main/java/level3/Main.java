@@ -8,12 +8,12 @@ public class Main {
         int operation = 0;
         String userId;
         int setValue;
-        TracsactionMenu tracsactionMenu = new TracsactionMenu();
+        TransactionMenu transactionMenu = new TransactionMenu();
         UserAuthentication userAuthentication = new UserAuthentication();
         AmountInput amountInput = new AmountInput();
         TransactionResult transactionResult = new TransactionResult();
 
-        operation = tracsactionMenu.start();
+        operation = transactionMenu.start();
 
         //入金を選択したとき
         if (operation == 1) {
