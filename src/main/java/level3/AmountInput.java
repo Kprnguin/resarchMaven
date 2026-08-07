@@ -5,8 +5,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class AmountInput {
-    private final int ERROR = -1;
-    InputValidator inputValidator = new InputValidator();
+    private static final int ERROR = -1;
+    private final InputValidator inputValidator = new InputValidator();
 
     public int start(int operation, String userId){
         int inputAgain = 2;
@@ -75,7 +75,7 @@ public class AmountInput {
             System.out.println("入力金額：" + amount + "円\n");
             System.out.println("[1:次に進む][2:入力しなおす]");
             System.out.print("あなたの操作(数字を入力してください)：");
-            flag = inputValidator.validateSelection(setValue);
+            flag = inputValidator.checkSelection(setValue);
         }
         return flag;
     }

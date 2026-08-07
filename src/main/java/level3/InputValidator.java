@@ -5,9 +5,9 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class InputValidator {
-    private final int ERROR = -1;
+    private static final int ERROR = -1;
 
-    public int validateSelection(int setValue){
+    public int checkSelection(int setValue){
         int flag;
         Scanner input = new Scanner(System.in);
         try {

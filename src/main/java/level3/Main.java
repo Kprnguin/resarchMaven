@@ -2,18 +2,14 @@ package level3;
 
 
 public class Main {
-    private static final int ERROR = -1;
-
     public static void main(String[] args) {
-        int operation = 0;
         String userId;
-        int setValue;
-        TracsactionMenu tracsactionMenu = new TracsactionMenu();
+        TransactionMenu transactionMenu = new TransactionMenu();
         UserAuthentication userAuthentication = new UserAuthentication();
         AmountInput amountInput = new AmountInput();
         TransactionResult transactionResult = new TransactionResult();
 
-        operation = tracsactionMenu.start();
+        int operation = transactionMenu.start();
 
         //入金を選択したとき
         if (operation == 1) {
@@ -28,7 +24,7 @@ public class Main {
         //出金を選択したとき
         else if (operation == 2) {
             userId = userAuthentication.identifyUser();
-            userAuthentication.passwordCheck(userId);
+            userAuthentication.checkPassword(userId);
 
             int withdrawal = amountInput.start(operation, userId);
 
