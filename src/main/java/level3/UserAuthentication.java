@@ -22,12 +22,12 @@ public class UserAuthentication {
         return userId;
     }
 
-    public void passwordCheck(String userId){
+    public void checkPassword(String userId){
         //idに対してパスワードを参照する(3回間違えると操作できなくなる)
         int i = 0;
         int password;
         while (true){
-            password = passwordInput();
+            password = inputPassword();
 
             //パスワードが正しければreturn
             int correctPassword = Table.getPassword(userId);
@@ -49,7 +49,7 @@ public class UserAuthentication {
         }
     }
 
-    private int passwordInput() {
+    private int inputPassword() {
         int password;
         //パスワードを入力してもらう
         System.out.print("パスワードを入力してください：");

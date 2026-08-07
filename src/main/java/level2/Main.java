@@ -10,31 +10,31 @@ public class Main {
     public static void main(String[] args) {
         String userId;
 
-        int operation = transactionMenuStart();
+        int operation = startTransactionMenu();
 
         //入金を選択したとき
         if (operation == 1) {
-            userId = userAuthentication();
+            userId = identifyUser();
 
-            int depositAmount = amountInputStart(operation, userId);
+            int depositAmount = startAmountInput(operation, userId);
 
             //入金額の表示と、預け金額の総額表示
-            transactionResultDisplay(userId, depositAmount,operation);
+            displayTransactionResult(userId, depositAmount,operation);
         }
 
         //出金を選択したとき
         else if (operation == 2) {
-            userId = userAuthentication();
-            passwordCheck(userId);
+            userId = identifyUser();
+            checkPassword(userId);
 
-            int withdrawal = amountInputStart(operation, userId);
+            int withdrawal = startAmountInput(operation, userId);
 
             //出金額の表示と、預け金額の総額表示
-            transactionResultDisplay(userId,withdrawal,operation);
+            displayTransactionResult(userId,withdrawal,operation);
         }
     }
 
-    public static int transactionMenuStart() {
+    public static int startTransactionMenu() {
         int operation = ERROR;
         int setValue;
         while (operation != 1 && operation != 2) {  //1か2を選択するまで選択しなおす
@@ -51,7 +51,7 @@ public class Main {
 
 
 
-    public static String userAuthentication(){
+    public static String identifyUser(){
         //idを入力してもらう(キャッシュカードの認証)
         System.out.print("ユーザーIDを入力してください：");
         Scanner id = new Scanner(System.in);
@@ -86,7 +86,7 @@ public class Main {
     }
 
 
-    public static int amountInputStart(int operation, String userId){
+    public static int startAmountInput(int operation, String userId){
         int flag = 2;
         int amount = 0;
         while (flag == 2) {
@@ -96,19 +96,19 @@ public class Main {
             }else if(operation == 2) {
                 System.out.print("出金金額を入れてください：");
             }
-            amount = amountInput(operation,userId);
+            amount = inputAmount(operation,userId);
             if (amount == ERROR) {
                 continue;
             }
 
             //入力内容に間違いがないかを確認する
-            flag = amountCheck(amount);
+            flag = checkAmount(amount);
         }
         return amount;
     }
 
 
-    public static int amountInput(int operation,String userId){
+    public static int inputAmount(int operation,String userId){
         //金額を入力してもらう(入力金額が1,000,000円(お札100枚まで) or 0円未満の場合例外処理)
         int amount;
         Scanner input = new Scanner(System.in);
@@ -143,7 +143,7 @@ public class Main {
 
 
 
-    public static int amountCheck(int amount){
+    public static int checkAmount(int amount){
         //入力内容に間違いがないかを確認する
         int setValue = 2;//setValueは選択肢(ボタン)の数
         int flag = 0;
@@ -159,7 +159,7 @@ public class Main {
 
 
 
-    public static int passwordInput() {
+    public static int inputPassword() {
         int password;
         //パスワードを入力してもらう
         System.out.print("パスワードを入力してください：");
@@ -178,12 +178,12 @@ public class Main {
 
 
 
-    public static void passwordCheck(String userId){
+    public static void checkPassword(String userId){
         //idに対してパスワードを参照する(3回間違えると操作できなくなる)
         int i = 0;
         int password;
         while (true){
-            password = passwordInput();
+            password = inputPassword();
 
             //パスワードが正しければreturn
             int correctPassword = Table.getPassword(userId);
@@ -207,7 +207,7 @@ public class Main {
 
 
 
-    public static void transactionResultDisplay(String userId, int amount, int operation){
+    public static void displayTransactionResult(String userId, int amount, int operation){
         //入出金額の表示と、預け金額の総額表示
         System.out.println("元の口座額：" + Table.getBalance(userId) + "円");
         if(operation == 1){

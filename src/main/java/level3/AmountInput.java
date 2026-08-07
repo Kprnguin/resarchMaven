@@ -75,7 +75,7 @@ public class AmountInput {
             System.out.println("入力金額：" + amount + "円\n");
             System.out.println("[1:次に進む][2:入力しなおす]");
             System.out.print("あなたの操作(数字を入力してください)：");
-            flag = inputValidator.validateSelection(setValue);
+            flag = inputValidator.checkSelection(setValue);
         }
         return flag;
     }

@@ -24,7 +24,7 @@ public class Main {
         //出金を選択したとき
         else if (operation == 2) {
             userId = userAuthentication.identifyUser();
-            userAuthentication.passwordCheck(userId);
+            userAuthentication.checkPassword(userId);
 
             int withdrawal = amountInput.start(operation, userId);
 
