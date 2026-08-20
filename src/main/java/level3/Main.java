@@ -7,7 +7,6 @@ public class Main {
     public static void main(String[] args) {
         int operation = 0;
         String userId;
-        int setValue;
         TracsactionMenu tracsactionMenu = new TracsactionMenu();
         UserAuthentication userAuthentication = new UserAuthentication();
         AmountInput amountInput = new AmountInput();
