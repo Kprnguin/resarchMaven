@@ -20,6 +20,7 @@ public class Main {
 
             //入金額の表示と、預け金額の総額表示
             displayTransactionResult(userId, depositAmount,operation);
+            adjustBalance(userId,depositAmount,operation);
         }
 
         //出金を選択したとき
@@ -31,6 +32,7 @@ public class Main {
 
             //出金額の表示と、預け金額の総額表示
             displayTransactionResult(userId,withdrawal,operation);
+            adjustBalance(userId,withdrawal,operation);
         }
     }
 
@@ -217,7 +219,14 @@ public class Main {
             System.out.println("出金金額：" + amount + "円");
             amount = -1 * amount;
         }
+        System.out.println("預け総額：" + (Table.getBalance(userId) + amount) + "円");
+    }
+
+
+    public static void adjustBalance(String userId, int amount , int operation){
+        if(operation == 2){
+            amount = -1 * amount;
+        }
         Table.updateBalance(userId, amount);//引き出すため入力した出金額に-1の積を渡す
-        System.out.println("預け総額：" + Table.getBalance(userId) + "円");
     }
 }

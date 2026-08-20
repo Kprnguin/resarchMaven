@@ -4,10 +4,10 @@ package level3;
 public class Main {
     public static void main(String[] args) {
         String userId;
-        TracsactionMenu tracsactionMenu = new TracsactionMenu();
+        TransactionMenu transactionMenu = new TransactionMenu();
         UserAuthentication userAuthentication = new UserAuthentication();
         AmountInput amountInput = new AmountInput();
-        TransactionResult transactionResult = new TransactionResult();
+        Transaction transaction = new Transaction();
 
         int operation = transactionMenu.start();
 
@@ -18,7 +18,9 @@ public class Main {
             int depositAmount = amountInput.start(operation, userId);
 
             //入金額の表示と、預け金額の総額表示
-            transactionResult.display(userId, depositAmount,operation);
+            transaction.displayResult(userId, depositAmount,operation);
+            //残高を更新する
+            transaction.adjustBalance(userId,depositAmount,operation);
         }
 
         //出金を選択したとき
@@ -29,7 +31,9 @@ public class Main {
             int withdrawal = amountInput.start(operation, userId);
 
             //出金額の表示と、預け金額の総額表示
-            transactionResult.display(userId,withdrawal,operation);
+            transaction.displayResult(userId,withdrawal,operation);
+            //残高を更新する
+            transaction.adjustBalance(userId,withdrawal,operation);
         }
     }
 }
