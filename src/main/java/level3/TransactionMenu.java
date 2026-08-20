@@ -1,8 +1,8 @@
 package level3;
 
-public class TracsactionMenu {
-    private final int ERROR = -1;
-    InputValidator inputValidator = new InputValidator();
+public class TransactionMenu {
+    private static final int ERROR = -1;
+    private final InputValidator inputValidator = new InputValidator();
 
     public int start() {
         int operation = ERROR;
@@ -13,7 +13,7 @@ public class TracsactionMenu {
             System.out.println("何の操作を行いますか？");
             System.out.println("[1:入金][2:出金]");
             System.out.print("あなたの操作(数字を入力してください)：");
-            operation = inputValidator.validateSelection(setValue);   //setValueは選択肢(ボタン)の数
+            operation = inputValidator.checkSelection(setValue);   //setValueは選択肢(ボタン)の数
         }
         return operation;
     }
