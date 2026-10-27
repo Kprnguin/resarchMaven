@@ -1,4 +1,4 @@
-package level2;
+package E;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
