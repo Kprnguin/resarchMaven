@@ -9,6 +9,7 @@ public class Main {
         int flag;
         int operation;
 
+        //行動の選択をする
         while (true) {
             System.out.println("-----------------------------");
             System.out.println("〇〇銀行ATM");

@@ -8,7 +8,6 @@ public class UserAuthentication {
     private static final int ERROR = -1;
 
     public String identifyUser(){
-        //idを入力してもらう(キャッシュカードの認証)
         System.out.print("ユーザーIDを入力してください：");
         Scanner id = new Scanner(System.in);
         String userId = id.nextLine();
@@ -23,7 +22,6 @@ public class UserAuthentication {
     }
 
     public void checkPassword(String userId){
-        //idに対してパスワードを参照する(3回間違えると操作できなくなる)
         int i = 0;
         int password;
         while (true){
@@ -51,7 +49,6 @@ public class UserAuthentication {
 
     private int inputPassword() {
         int password;
-        //パスワードを入力してもらう
         System.out.print("パスワードを入力してください：");
         Scanner pass = new Scanner(System.in);
         try {

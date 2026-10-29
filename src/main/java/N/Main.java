@@ -1,4 +1,4 @@
-package O;
+package N;
 
 
 public class Main {
@@ -11,28 +11,22 @@ public class Main {
 
         int operation = transactionMenu.start();
 
-        //入金を選択したとき
         if (operation == 1) {
             userId = userAuthentication.identifyUser();
 
             int depositAmount = amountInput.start(operation, userId);
 
-            //入金額の表示と、預け金額の総額表示
             transaction.displayResult(userId, depositAmount,operation);
-            //残高を更新する
             transaction.adjustBalance(userId,depositAmount,operation);
         }
 
-        //出金を選択したとき
         else if (operation == 2) {
             userId = userAuthentication.identifyUser();
             userAuthentication.checkPassword(userId);
 
             int withdrawal = amountInput.start(operation, userId);
 
-            //出金額の表示と、預け金額の総額表示
             transaction.displayResult(userId,withdrawal,operation);
-            //残高を更新する
             transaction.adjustBalance(userId,withdrawal,operation);
         }
     }

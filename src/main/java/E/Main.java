@@ -12,25 +12,21 @@ public class Main {
 
         int operation = startTransactionMenu();
 
-        //入金を選択したとき
         if (operation == 1) {
             userId = identifyUser();
 
             int depositAmount = startAmountInput(operation, userId);
 
-            //入金額の表示と、預け金額の総額表示
             displayTransactionResult(userId, depositAmount,operation);
             adjustBalance(userId,depositAmount,operation);
         }
 
-        //出金を選択したとき
         else if (operation == 2) {
             userId = identifyUser();
             checkPassword(userId);
 
             int withdrawal = startAmountInput(operation, userId);
 
-            //出金額の表示と、預け金額の総額表示
             displayTransactionResult(userId,withdrawal,operation);
             adjustBalance(userId,withdrawal,operation);
         }
@@ -103,7 +99,6 @@ public class Main {
                 continue;
             }
 
-            //入力内容に間違いがないかを確認する
             flag = checkAmount(amount);
         }
         return amount;
@@ -146,7 +141,6 @@ public class Main {
 
 
     public static int checkAmount(int amount){
-        //入力内容に間違いがないかを確認する
         int setValue = 2;//setValueは選択肢(ボタン)の数
         int flag = 0;
         while (flag < 1 || setValue < flag) {
@@ -163,7 +157,6 @@ public class Main {
 
     public static int inputPassword() {
         int password;
-        //パスワードを入力してもらう
         System.out.print("パスワードを入力してください：");
         Scanner pass = new Scanner(System.in);
         try {
@@ -181,7 +174,6 @@ public class Main {
 
 
     public static void checkPassword(String userId){
-        //idに対してパスワードを参照する(3回間違えると操作できなくなる)
         int i = 0;
         int password;
         while (true){
@@ -210,7 +202,6 @@ public class Main {
 
 
     public static void displayTransactionResult(String userId, int amount, int operation){
-        //入出金額の表示と、預け金額の総額表示
         System.out.println("元の口座額：" + Table.getBalance(userId) + "円");
         if(operation == 1){
             System.out.println("入金金額：" + amount + "円");

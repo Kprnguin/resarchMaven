@@ -24,7 +24,6 @@ public class AmountInput {
                 continue;
             }
 
-            //入力内容に間違いがないかを確認する
             flag = check(amount);
         }
         return amount;
@@ -32,7 +31,6 @@ public class AmountInput {
 
 
     private int input(int operation,String userId){
-        //金額を入力してもらう(入力金額が1,000,000円(お札100枚まで) or 0円未満の場合例外処理)
         int amount;
         Scanner input = new Scanner(System.in);
         try {
@@ -41,6 +39,7 @@ public class AmountInput {
             System.out.println("-----------------------------");
             //int型の例外処理
             if(operation == 1){
+                //入力金額が1,000,000円(お札100枚まで) or 0円未満の場合例外処理
                 if(amount <= 0 || amount > 1000000){
                     System.out.println("金額が適切ではありません");
                     System.out.println("もう一度入力してください");
@@ -48,6 +47,7 @@ public class AmountInput {
                     return ERROR;
                 }
             }if(operation == 2){
+                //入力金額が1,000,000円(お札100枚まで) or 0円未満 or 残高以上の場合例外処理
                 if(amount <= 0 || amount > 1000000 || Table.getBalance(userId) < amount){
                     System.out.println("金額が適切ではありません");
                     System.out.println("もう一度入力してください");
@@ -67,7 +67,6 @@ public class AmountInput {
 
 
     private int check(int amount){
-        //入力内容に間違いがないかを確認する
         int setValue = 2;//setValueは選択肢(ボタン)の数
         int flag = 0;
         while (flag < 1 || setValue < flag) {
