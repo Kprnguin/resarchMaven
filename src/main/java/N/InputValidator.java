@@ -1,4 +1,4 @@
-package O;
+package N;
 
 
 import java.util.InputMismatchException;
