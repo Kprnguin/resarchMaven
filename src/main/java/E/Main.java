@@ -35,7 +35,7 @@ public class Main {
     public static int startTransactionMenu() {
         int operation = ERROR;
         int setValue;
-        while (operation != 1 && operation != 2) {  //1か2を選択するまで選択しなおす
+        while (operation != 1 && operation != 2) {
             System.out.println("-----------------------------");
             System.out.println("〇〇銀行ATM");
             System.out.println("何の操作を行いますか？");
@@ -50,12 +50,10 @@ public class Main {
 
 
     public static String identifyUser(){
-        //idを入力してもらう(キャッシュカードの認証)
         System.out.print("ユーザーIDを入力してください：");
         Scanner id = new Scanner(System.in);
         String userId = id.nextLine();
         System.out.println("-----------------------------");
-        //idを参照する(存在しないとき例外処理)
         if (!Table.containsAccount(userId)) {
             System.out.println("不明なユーザーIDです");
             System.out.println("最初からやり直してください");
@@ -75,7 +73,7 @@ public class Main {
                 System.out.println("操作が間違っています");
                 System.out.println("もう一度操作を選択してください");
             }
-        } catch (InputMismatchException e) {    //int型以外が入ったときの例外処理
+        } catch (InputMismatchException e) {
             System.out.println("-----------------------------");
             System.out.println("数字を入力してください。");
             return ERROR;
@@ -106,14 +104,12 @@ public class Main {
 
 
     public static int inputAmount(int operation,String userId){
-        //金額を入力してもらう(入力金額が1,000,000円(お札100枚まで) or 0円未満の場合例外処理)
         int amount;
         Scanner input = new Scanner(System.in);
         try {
             amount = input.nextInt();
             System.out.println("入力額：" + amount + "円");
             System.out.println("-----------------------------");
-            //int型の例外処理
             if(operation == 1){
                 if(amount <= 0 || amount > 1000000){
                     System.out.println("金額が適切ではありません");
@@ -129,7 +125,7 @@ public class Main {
                     return ERROR;
                 }
             }
-        } catch (InputMismatchException e) {    //int型以外が入ったときの例外処理
+        } catch (InputMismatchException e) {
             System.out.println("-----------------------------");
             System.out.println("数字を入力してください。");
             System.out.println("-----------------------------");
@@ -163,7 +159,7 @@ public class Main {
             password = pass.nextInt();
             System.out.println("-----------------------------");
             return password;
-        } catch (InputMismatchException e) {    //int型以外が入ったときの例外処理
+        } catch (InputMismatchException e) {
             System.out.println("-----------------------------");
             System.out.println("数字を入力してください。");
             System.out.println("-----------------------------");
@@ -179,7 +175,6 @@ public class Main {
         while (true){
             password = inputPassword();
 
-            //パスワードが正しければreturn
             int correctPassword = Table.getPassword(userId);
             if (correctPassword == password) {
                 return;
@@ -189,7 +184,6 @@ public class Main {
             System.out.println("パスワードが間違っています");
             i++;
 
-            //3回間違えると操作を強制終了
             if(i == 3){
                 System.out.println("3回パスワードを間違えたため操作を終了します");
                 System.exit(1);

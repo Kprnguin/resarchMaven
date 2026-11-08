@@ -17,7 +17,7 @@ public class InputValidator {
                 System.out.println("操作が間違っています");
                 System.out.println("もう一度操作を選択してください");
             }
-        } catch (InputMismatchException e) {    //int型以外が入ったときの例外処理
+        } catch (InputMismatchException e) {
             System.out.println("-----------------------------");
             System.out.println("数字を入力してください。");
             return ERROR;

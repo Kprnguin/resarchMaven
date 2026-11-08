@@ -7,7 +7,7 @@ public class TransactionMenu {
     public int start() {
         int operation = ERROR;
         int setValue = 2;
-        while (operation != 1 && operation != 2) {  //1か2を選択するまで選択しなおす
+        while (operation != 1 && operation != 2) {
             System.out.println("-----------------------------");
             System.out.println("〇〇銀行ATM");
             System.out.println("何の操作を行いますか？");

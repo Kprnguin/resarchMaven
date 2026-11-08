@@ -12,7 +12,6 @@ public class UserAuthentication {
         Scanner id = new Scanner(System.in);
         String userId = id.nextLine();
         System.out.println("-----------------------------");
-        //idを参照する(存在しないとき例外処理)
         if (!Table.containsAccount(userId)) {
             System.out.println("不明なユーザーIDです");
             System.out.println("最初からやり直してください");
@@ -27,7 +26,6 @@ public class UserAuthentication {
         while (true){
             password = inputPassword();
 
-            //パスワードが正しければreturn
             int correctPassword = Table.getPassword(userId);
             if (correctPassword == password) {
                 return;
@@ -37,7 +35,6 @@ public class UserAuthentication {
             System.out.println("パスワードが間違っています");
             i++;
 
-            //3回間違えると操作を強制終了
             if(i == 3){
                 System.out.println("3回パスワードを間違えたため操作を終了します");
                 System.exit(1);
@@ -55,7 +52,7 @@ public class UserAuthentication {
             password = pass.nextInt();
             System.out.println("-----------------------------");
             return password;
-        } catch (InputMismatchException e) {    //int型以外が入ったときの例外処理
+        } catch (InputMismatchException e) {
             System.out.println("-----------------------------");
             System.out.println("数字を入力してください。");
             System.out.println("-----------------------------");

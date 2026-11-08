@@ -37,9 +37,7 @@ public class AmountInput {
             amount = input.nextInt();
             System.out.println("入力額：" + amount + "円");
             System.out.println("-----------------------------");
-            //int型の例外処理
             if(operation == 1){
-                //入力金額が1,000,000円(お札100枚まで) or 0円未満の場合例外処理
                 if(amount <= 0 || amount > 1000000){
                     System.out.println("金額が適切ではありません");
                     System.out.println("もう一度入力してください");
@@ -47,7 +45,6 @@ public class AmountInput {
                     return ERROR;
                 }
             }if(operation == 2){
-                //入力金額が1,000,000円(お札100枚まで) or 0円未満 or 残高以上の場合例外処理
                 if(amount <= 0 || amount > 1000000 || Table.getBalance(userId) < amount){
                     System.out.println("金額が適切ではありません");
                     System.out.println("もう一度入力してください");
@@ -55,7 +52,7 @@ public class AmountInput {
                     return ERROR;
                 }
             }
-        } catch (InputMismatchException e) {    //int型以外が入ったときの例外処理
+        } catch (InputMismatchException e) {
             System.out.println("-----------------------------");
             System.out.println("数字を入力してください。");
             System.out.println("-----------------------------");
