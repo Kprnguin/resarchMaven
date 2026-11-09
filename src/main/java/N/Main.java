@@ -24,10 +24,10 @@ public class Main {
             userId = userAuthentication.identifyUser();
             userAuthentication.checkPassword(userId);
 
-            int withdrawal = amountInput.start(operation, userId);
+            int withdrawalAmount = amountInput.start(operation, userId);
 
-            transaction.displayResult(userId,withdrawal,operation);
-            transaction.adjustBalance(userId,withdrawal,operation);
+            transaction.displayResult(userId,withdrawalAmount,operation);
+            transaction.adjustBalance(userId,withdrawalAmount,operation);
         }
     }
 }

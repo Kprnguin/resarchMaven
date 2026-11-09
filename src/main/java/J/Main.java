@@ -9,7 +9,7 @@ public class Main {
         int flag;
         int operation;
 
-        //行動の選択をする
+        //Select an action
         while (true) {
             System.out.println("-----------------------------");
             System.out.println("〇〇銀行ATM");
@@ -35,7 +35,7 @@ public class Main {
 
 
 
-        //入金を選択したとき
+        //If deposit is selected,
         if (operation == 1) {
             System.out.print("ユーザーIDを入力してください：");
             Scanner id = new Scanner(System.in);
@@ -48,7 +48,7 @@ public class Main {
                 return;
             }
 
-            //入金金額を入力してもらう
+            //Enter the deposit amount.
             int depositAmount;
             while (true) {
                 System.out.println("現在の口座額：" + Table.getBalance(userId) + "円");
@@ -71,7 +71,7 @@ public class Main {
                     continue;
                 }
 
-                //入力内容に間違いがないかを確認する
+                //Check that the entered deposit amount is correct.
                 while (true) {
                     System.out.println("入力内容を確認してください\n");
                     System.out.println("入力金額：" + depositAmount + "円\n");
@@ -109,7 +109,7 @@ public class Main {
 
 
 
-        //出金を選択したとき
+        //If withdrawal is selected,
         else if (operation == 2) {
             System.out.print("ユーザーIDを入力してください：");
             Scanner id = new Scanner(System.in);
@@ -153,17 +153,17 @@ public class Main {
                 System.out.println("-----------------------------");
             }
 
-            //出金金額を入力してもらう
-            int withdrawal;
+            //Enter the withdrawal amount.
+            int withdrawalAmount;
             while (true) {
                 System.out.println("現在の口座額：" + Table.getBalance(userId) + "円");
                 System.out.print("出金金額を入れてください：");
                 Scanner amount = new Scanner(System.in);
                 try {
-                    withdrawal = amount.nextInt();
-                    System.out.println("出金額：" + withdrawal + "円");
+                    withdrawalAmount = amount.nextInt();
+                    System.out.println("出金額：" + withdrawalAmount + "円");
                     System.out.println("-----------------------------");
-                    if (withdrawal <= 0 || withdrawal > 1000000 || Table.getBalance(userId) < withdrawal) {
+                    if (withdrawalAmount <= 0 || withdrawalAmount > 1000000 || Table.getBalance(userId) < withdrawalAmount) {
                         System.out.println("金額が適切ではありません");
                         System.out.println("もう一度入力してください");
                         System.out.println("-----------------------------");
@@ -176,10 +176,10 @@ public class Main {
                     continue;
                 }
 
-                //入力内容に間違いがないかを確認する
+                //Check that the entered withdrawal amount is correct.
                 while (true) {
                     System.out.println("入力内容を確認してください\n");
-                    System.out.println("出金金額：" + withdrawal + "円\n");
+                    System.out.println("出金金額：" + withdrawalAmount + "円\n");
                     System.out.println("[1:次に進む][2:入力しなおす]");
                     System.out.print("あなたの操作(数字を入力してください)：");
                     Scanner input2 = new Scanner(System.in);
@@ -206,8 +206,8 @@ public class Main {
                 break;
             }
             System.out.println("元の口座額：" + Table.getBalance(userId) + "円");
-            System.out.println("出金額：" + withdrawal + "円");
-            Table.updateBalance(userId, -1*withdrawal);//引き出すため入力した出金額に-1の積を渡す
+            System.out.println("出金額：" + withdrawalAmount + "円");
+            Table.updateBalance(userId, -1*withdrawalAmount);
             System.out.println("預け総額：" + Table.getBalance(userId) + "円");
         }
     }

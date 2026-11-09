@@ -20,6 +20,6 @@ public class Transaction {
         if(operation == 2){
             amount = -1 * amount;
         }
-        Table.updateBalance(userId, amount);//引き出すため入力した出金額に-1の積を渡す　
+        Table.updateBalance(userId, amount);
     }
 }

@@ -25,10 +25,10 @@ public class Main {
             userId = identifyUser();
             checkPassword(userId);
 
-            int withdrawal = startAmountInput(operation, userId);
+            int withdrawalAmount = startAmountInput(operation, userId);
 
-            displayTransactionResult(userId,withdrawal,operation);
-            adjustBalance(userId,withdrawal,operation);
+            displayTransactionResult(userId,withdrawalAmount,operation);
+            adjustBalance(userId,withdrawalAmount,operation);
         }
     }
 
@@ -42,7 +42,7 @@ public class Main {
             System.out.println("[1:入金][2:出金]");
             System.out.print("あなたの操作(数字を入力してください)：");
             setValue = 2;
-            operation = checkSelection(setValue);   //setValueは選択肢(ボタン)の数
+            operation = checkSelection(setValue);
         }
         return operation;
     }
