@@ -137,7 +137,7 @@ public class Main {
 
 
     public static int checkAmount(int amount){
-        int setValue = 2;//setValueは選択肢(ボタン)の数
+        int setValue = 2;
         int flag = 0;
         while (flag < 1 || setValue < flag) {
             System.out.println("入力内容を確認してください\n");
@@ -212,6 +212,6 @@ public class Main {
         if(operation == 2){
             amount = -1 * amount;
         }
-        Table.updateBalance(userId, amount);//引き出すため入力した出金額に-1の積を渡す
+        Table.updateBalance(userId, amount);
     }
 }

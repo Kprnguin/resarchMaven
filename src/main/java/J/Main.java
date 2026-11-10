@@ -122,7 +122,7 @@ public class Main {
                 return;
             }
 
-            //idに対してパスワードを参照する
+            //Look up password by ID
             int i = 0;
             int password;
             while (true){
